@@ -5,9 +5,9 @@ require_relative '../../model/pc/GPU'
 require_relative '../../model/pc/DiscoDuro'
 
 describe 'PC' do
-  monitor = Pantalla.new(19, 100, Cable.new(480)).extend(LCD, VGA)
+  monitor     = Pantalla.new(19, 100, Cable.new(480)).extend(LCD, VGA)
   ensamblador = Ensamblador_de_PC.new
-  pc = PC.new(monitor)
+  pc          = PC.new(monitor)
   ensamblador.con_SSD(pc, 48).con_placa_comun_de_resolucion_y_consumo(ensamblador.pc, 480, 60)
   computadora = ensamblador.pc
 
