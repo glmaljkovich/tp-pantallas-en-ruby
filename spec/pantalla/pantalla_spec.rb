@@ -1,6 +1,5 @@
 require 'rspec'
-require_relative '../../model/pantalla/Pantalla'
-
+require_relative '../../model'
 
 describe 'Televisor de Tubo de 32" y 72ppp con entrada VGA 360p' do
   televisor_tubo_32_vga_360p = Pantalla.new(32, 72, Cable.new(360)).extend(Televisor, Tubo, VGA)
@@ -18,9 +17,9 @@ describe 'Televisor de Tubo de 32" y 72ppp con entrada VGA 360p' do
     end
   end
 
-  describe '#puede_usarse_para_juegos?' do
+  describe '#apta_para_videojuegos?' do
     it 'should return true' do
-      expect(televisor_tubo_32_vga_360p.puede_usarse_para_juegos?).to be (false)
+      expect(televisor_tubo_32_vga_360p.apta_para_videojuegos?).to be (false)
     end
   end
 

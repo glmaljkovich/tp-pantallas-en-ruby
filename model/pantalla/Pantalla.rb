@@ -15,7 +15,7 @@ class Pantalla
     un_cable.definicion <= definicion
   end
 
-  def puede_usarse_para_juegos?
+  def apta_para_videojuegos?
     tasa_de_refresco > 100
   end
 

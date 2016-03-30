@@ -1,9 +1,12 @@
 module Placa_de_Video
-  def con_resolucion(cant_pixeles)
-    @cant_pixeles = cant_pixeles
+  def con_definicion(cant_pixeles)
+    @definicion = cant_pixeles
     self
   end
-  attr_accessor :cant_pixeles
+
+  def definicion
+    (@definicion > super) ? @definicion : super
+  end
 end
 
 module GPU_gaming
@@ -12,8 +15,8 @@ module GPU_gaming
     cant_pixeles * (1/100000)
   end
 
-  def puede_usarse_para_juegos?
-    true
+  def apta_para_videojuegos?
+    super
   end
 end
 
@@ -24,8 +27,8 @@ module Placa_de_Video_comun
     self
   end
 
-  def puede_usarse_para_juegos?
-    Math::log(cant_pixeles / consumo) > 4
+  def apta_para_videojuegos?
+    super && (Math::log(definicion / consumo) > 4)
   end
 
   def consumo
@@ -38,7 +41,7 @@ module Placa_de_Video_integrada
     @consumo = consumo
   end
 
-  def puede_usarse_para_juegos?
+  def apta_para_videojuegos?
     false
   end
 end
