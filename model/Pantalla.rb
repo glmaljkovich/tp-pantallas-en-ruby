@@ -15,7 +15,7 @@ class Pantalla
   end
 
   def puede_usarse_para_juegos?
-    tasa_de_refresco
+    tasa_de_refresco > 100
   end
 
   attr_accessor :tamagno, :ppp

@@ -17,6 +17,9 @@ module HDMI
   def consumo
     super * 1.2
   end
+  def tasa_de_refresco
+    cable.tasa_de_refresco
+  end
 end
 
 module RF
