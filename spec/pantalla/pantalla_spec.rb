@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../model/Pantalla'
+require_relative '../../model/pantalla/Pantalla'
 
 
 describe 'Televisor de Tubo de 32" y 72ppp con entrada VGA 360p' do
