@@ -1,6 +1,6 @@
 module DefinicionMaximaDigital
   def definicion
-    self.ppp * sqrt((self.tamagno**2)/2)
+    self.ppp * Math::sqrt((self.tamagno**2)/2)
   end
 end
 

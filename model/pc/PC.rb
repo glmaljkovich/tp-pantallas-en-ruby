@@ -1,31 +1,34 @@
 class PC
-  def initialize(pantalla, placa_de_video)
+  def initialize(pantalla)
     @pantalla       = pantalla
-    @placa_de_video = placa_de_video
   end
   def apta_para_juegos?
-    pantalla.puede_usarse_para_juegos? && placa_de_video.puede_usarse_para_juegos?
+    pantalla.puede_usarse_para_juegos?
   end
   def consumo
-    pantalla.consumo + placa_de_video.consumo
+    pantalla.consumo
   end
-  attr_accessor :pantalla, :placa_de_video
+  attr_accessor :pantalla, :placa_de_video, :disco_duro
 end
 
-class DiscoDuro
-  def initialize(rpm)
-    @rpm = rpm
+class Ensamblador_de_PC
+
+  def con_HDD(pc, rpm)
+   @pc = pc.extend(HDD).con_rpm(rpm)
+    self
   end
-  def consumo
-    super + rpm * 60 / 1000
+
+  def con_SSD(pc, consumo)
+    @pc = pc.extend(SSD).con_consumo(consumo)
+    self
   end
+
+  def con_placa_comun_de_resolucion_y_consumo(pc, una_resolucion, un_consumo)
+    @pc = pc.extend(Placa_de_Video_comun).con_resolucion(una_resolucion).con_consumo(un_consumo)
+    self
+  end
+  attr_accessor :pc
 end
 
-class SSD
-  def initialize(gasto)
-    @consumo = gasto
-  end
-  def consumo
-    super + consumo
-  end
-end
+
+

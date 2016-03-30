@@ -2,6 +2,7 @@ require_relative 'Tecnologia'
 require_relative 'Entrada'
 require_relative 'Cable'
 
+
 class Pantalla
 
   def initialize(tamagno, ppp, cable)
